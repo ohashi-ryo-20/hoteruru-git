@@ -14,7 +14,7 @@
 			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		<!--Google Fonts-->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
 		<link th:href="@{/css/style.css}" rel="stylesheet">
 	</div>
@@ -50,6 +50,8 @@
 								<span sec:authentication="principal.user.name"></span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownGeneral">
+								<a class="dropdown-item moattravel-dropdown-item" th:href="@{/user}">会員情報</a>
+								<div class="dropdown-divider"></div>
 								<a class="dropdown-item moattravel-dropdown-item" th:href="@{/logout}"
 									onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 									ログアウト
@@ -64,6 +66,7 @@
 								管理者メニュー
 							</a>
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAdmin">
+								<a class="dropdown-item moattravel-dropdown-item" th:href="@{/admin/users}">会員一覧</a>
 								<a class="dropdown-item moattravel-dropdown-item" th:href="@{/admin/houses}">民宿一覧</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item moattravel-dropdown-item" th:href="@{/logout}"
