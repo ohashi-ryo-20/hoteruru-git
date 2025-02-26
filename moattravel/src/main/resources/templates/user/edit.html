@@ -34,12 +34,12 @@
 										</div>
 									</label>
 								</div>
-								<dic class="col-md-7">
+								<div class="col-md-7">
 									<div th:if="${#fields.hasErrors('name')}" class="text-danger small mb-2"
 										th:errors="*{name}"></div>
 									<input type="text" class="form-control" th:field="*{name}" autocomplete="name"
 										autofocus placeholder="MOAT 太郎">
-								</dic>
+								</div>
 							</div>
 							<div class="form-gruop row mb-3">
 								<div class="col-md-5">
@@ -86,7 +86,7 @@
 									<div th:if="${#fields.hasErrors('address')}" class="text-danger small mb-2"
 										th:errors="*{address}"></div>
 									<input type="text" class="form-control" th:field="*{address}"
-										placeholder="よう京都千代田区神田練塀町300番地">
+										placeholder="東京都千代田区神田練塀町300番地">
 								</div>
 							</div>
 							<div class="form-group row mb-3">

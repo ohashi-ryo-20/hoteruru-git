@@ -16,7 +16,7 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/", "/signup/**","/houses","/houses/{id}")
+				.requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/", "/signup/**","/houses","/houses/{id}", "/stripe/webhook")
 				.permitAll()//全てのユーザーにアクセスを許可するURL
 				.requestMatchers("/admin/**").hasRole("ADMIN")//管理者にのみアクセスを許可するURL
 				.anyRequest().authenticated())//上記以外のURLはログインが必要（会員または管理者のどちらでもOK）
@@ -28,7 +28,10 @@ public class WebSecurityConfig {
 						.permitAll())
 				.logout((logout) -> logout
 						.logoutSuccessUrl("/?loggedOut")//ログアウト時のリダイレクト先URL
-						.permitAll());
+						.permitAll()
+						)
+				.csrf().ignoringRequestMatchers("/stripe/webhook");
+		
 		return http.build();
 	}
 
